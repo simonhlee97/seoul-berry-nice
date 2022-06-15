@@ -1,33 +1,50 @@
-<form action="{{ route('auth.register') }}" method="POST">
-  <label>
-    Username
-    <input type="text" name="username" value="{{ flashMessages.get('username') ?? '' }}" />
-    @if (flashMessages.has('errors.username'))
-      <small style="color: red;">
-        {{ flashMessages.get('errors.username') }}
-      </small>
-    @endif
-  </label>
+@layout('layouts/main')
+@set('title', 'Register page')
 
-  <label>
-    Email
-    <input type="email" name="email" value="{{ flashMessages.get('email') ?? '' }}" />
-    @if (flashMessages.has('errors.email'))
-      <small style="color: red;">
-        {{ flashMessages.get('errors.email') }}
-      </small>
-    @endif
-  </label>
+@section('body')
 
-  <label>
-    Password
-    <input type="password" name="password" />
-    @if (flashMessages.has('errors.password'))
-      <small style="color: red;">
-        {{ flashMessages.get('errors.password') }}
-      </small>
-    @endif
-  </label>
+<h2 class='text-8xl text-center'>Sign up and join</h2>
 
-  <button type="submit">Register</button>
-</form>
+<div class="container px-12">
+  <form action="{{ route('auth.register') }}" method="POST">
+    <fieldset class="flex two">
+      <label><input type="email" placeholder="Email"></label>
+      <label><input type="password" placeholder="Password"></label>
+    </fieldset>
+    <textarea placeholder="Textarea"></textarea>
+    
+    <label>
+      Username
+      <input type="text" name="username" value="{{ flashMessages.get('username') ?? '' }}" />
+      @if (flashMessages.has('errors.username'))
+        <small style="color: red;">
+          {{ flashMessages.get('errors.username') }}
+        </small>
+      @endif
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" value="{{ flashMessages.get('email') ?? '' }}" />
+      @if (flashMessages.has('errors.email'))
+        <small style="color: red;">
+          {{ flashMessages.get('errors.email') }}
+        </small>
+      @endif
+    </label>
+
+    <label>
+      Password
+      <input type="password" name="password" />
+      @if (flashMessages.has('errors.password'))
+        <small style="color: red;">
+          {{ flashMessages.get('errors.password') }}
+        </small>
+      @endif
+    </label>
+
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+@end

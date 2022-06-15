@@ -1,0 +1,25 @@
+<header class="header">
+  {{--  <div style="overflow: hidden;height: 250px;">  --}}
+    <!-- For Demo, Represents the body -->
+  
+    <nav class="demo">
+      <a href="/" class="brand">
+        <span>Seoul_Buckety</span>
+      </a>
+  
+      <!-- responsive-->
+      <input id="bmenub" type="checkbox" class="show">
+      <label for="bmenub" class="burger button">menu</label>
+  
+      <div class="menu">
+        
+        
+        <a href="{{ route('about') }}" class=" button indigo-button">About</a>
+        <a href="{{ route('contact') }}" class=" button indigo-button">Contact Us</a>
+        <a href="/things" class="button indigo-button">Things To Do</a>
+        <a href="/register" class="button indigo-button">Sign up</a>
+      </div>
+    </nav>
+  
+  {{--  </div>  --}}
+</header>

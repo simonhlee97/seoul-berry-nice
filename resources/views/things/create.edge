@@ -1,0 +1,18 @@
+@layout('layouts/main')
+@set('title', 'add new thing to do in Seoul')
+
+@section('body')
+
+<div class="create">
+  <h2>Add a fun thing to do in Seoul</h2>
+  <form action="/things" method="post">
+    {{ csrfField() }}
+    <fieldset class="flex two">
+      <label><input type="text" name="title" placeholder="title"></label>
+    </fieldset>
+    <textarea name="description" placeholder="description"></textarea>
+  </form>
+
+</div>
+
+@end

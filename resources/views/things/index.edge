@@ -1,0 +1,24 @@
+@layout('layouts/main')
+@set('title', 'Things to do Seoul')
+
+@section('body')
+
+<div class="things-todo">
+  <h2>Things to do in Seoul</h2>
+  <form action="/things" method="post">
+    {{ csrfField() }}
+    <fieldset class="flex two">
+      <label><input type="text" class="input {{flashMessages.has('errors.title') ? 'is-danger' : '' }}" name="title" placeholder="title" value="{{flashMessages.get('title') || '' }}" /></label>
+    </fieldset>
+    <textarea name="description" placeholder="description"></textarea>
+    <button type='submit' class='button success'>Submit</button>
+  
+    @if(flashMessages.has('errors.title'))
+      <p>{{ flashMessages.get('errors.title') }}</p>
+    @endif
+  
+  
+  </form>
+</div>
+
+@end
