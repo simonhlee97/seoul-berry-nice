@@ -16,9 +16,39 @@
     @if(flashMessages.has('errors.title'))
       <p>{{ flashMessages.get('errors.title') }}</p>
     @endif
-  
-  
   </form>
+
+  @if(flashMessages.has('notification'))
+    <div class="notification">
+      {{ flashMessages.get('notification') }}
+    </div>
+  @endif
 </div>
 
-@end
+<div class="container mt-12">
+  <div class="flex">
+
+  @each(item in things)
+    <article class="card w-72 m-4">
+      <header>
+        <h3>{{item.title}}</h3>
+      </header>
+      <p>{{item.description}}</p>
+      <div class="metadata">
+        <p>date: 16 June 2022</p>
+        <p>time: 6pm</p>
+        <p>likes: thumbs up icon</p>
+        {{--  <form action="{{`/things/${item.id}?_method=PATCH`}}" method="post">
+          {{ csrfField() }}
+          <label for="completed" class="checkbox">
+            <input type="checkbox" name="completed" onchange="this.form.submit()" />
+          </label>
+        </form>  --}}
+      </div>
+    </article>
+    
+  @endeach
+  </div>
+</div>
+
+@endsection

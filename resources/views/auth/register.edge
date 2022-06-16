@@ -7,6 +7,7 @@
 
 <div class="container px-12">
   <form action="{{ route('auth.register') }}" method="POST">
+    {{ csrfField() }}
     <fieldset class="flex two">
       <label><input type="email" placeholder="Email"></label>
       <label><input type="password" placeholder="Password"></label>
