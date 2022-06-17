@@ -12,6 +12,8 @@ Route.group(() => {
 
 
 
+Route.get("/bites", "BitesController.index")
+Route.post("/bites", "BitesController.store");
 
 Route.get('register', 'AuthController.registerShow').as('auth.register.show')
 Route.post('register', 'AuthController.register').as('auth.register')
